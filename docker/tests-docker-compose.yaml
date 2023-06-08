@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:13
+    restart: always
+    container_name: integration-tests-courses-service-db
+    ports:
+      - "5452:5432"
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: tests
