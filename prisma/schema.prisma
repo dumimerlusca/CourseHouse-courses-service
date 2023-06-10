@@ -11,21 +11,24 @@ datasource db {
 }
 
 model Course {
-  id          Int      @id @default(autoincrement())
-  authorId    Int
+  id          String      @id @default(uuid())
+  authorId    String
+  category    SubCategory @relation(fields: [categoryId], references: [id])
+  categoryId  String
   description String
+  title       String
   price       Int
-  isPublished Boolean  @default(false)
-  isArchieved Boolean  @default(false)
-  Lesson      Lesson[]
+  isPublished Boolean     @default(false)
+  isArchieved Boolean     @default(false)
+  lessons     Lesson[]
 
   @@map("courses")
 }
 
 model Lesson {
-  id          Int    @id @default(autoincrement())
+  id          String @id @default(uuid())
   course      Course @relation(fields: [courseId], references: [id])
-  courseId    Int
+  courseId    String
   title       String
   description String
   length      Int
@@ -33,4 +36,72 @@ model Lesson {
   videoUrl    String
 
   @@map("lessons")
+}
+
+model Category {
+  id             String        @id @default(uuid())
+  name           CategoryEnum
+  sub_categories SubCategory[]
+
+  @@map("categories")
+}
+
+model SubCategory {
+  id         String   @id @default(uuid())
+  categoryId String
+  name       String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  courses    Course[]
+
+  @@map("sub_categories")
+}
+
+enum CategoryEnum {
+  development
+  bussiness
+  finance
+  design
+  marketing
+  health_and_fitness
+}
+
+enum SubCategoryEnum {
+  // development
+  web_development
+  mobile_development
+  programming_languages
+  game_development
+  software_testing
+
+  // business
+  entrepreneurship
+  communication
+  management
+  sales
+  strategy
+
+  // finance
+  accounting
+  cyprocurrency
+  finance
+  analysys
+  investing
+
+  // design
+  web_design
+  graphic_design
+  design_tools
+  game_design
+
+  // marketing
+  digital_marketing
+  seo
+  social_media_marketing
+  branding
+
+  // health and fitness
+  fitness
+  general_health
+  sports
+  nutrition
 }

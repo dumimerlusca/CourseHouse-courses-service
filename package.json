@@ -8,14 +8,15 @@
     "dev": "dotenv -e .env.dev -- nodemon src/index.ts",
     "build": "tsc",
     "test:migrate": "dotenv -e .env.test -- prisma migrate dev",
-    "test:jest": "dotenv -e .env.test jest --watchAll --no-cache",
-    "test": "docker-compose -f docker/tests-docker-compose.yaml up -d && yarn test:migrate && yarn test:jest",
+    "test:init": "docker-compose -f docker/tests-docker-compose.yaml up -d && yarn test:migrate",
+    "test": "dotenv -e .env.test -- jest --watchAll --no-cache",
     "test:down": "docker-compose -f docker/tests-docker-compose.yaml down",
     "docker:build": "docker build -t dumimerlusca/users-service ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dumiorg/coursehouse-common": "^1.0.17",
     "@prisma/client": "^4.15.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
@@ -32,6 +33,7 @@
     "@types/supertest": "^2.0.12",
     "jest": "^29.5.0",
     "nodemon": "^2.0.22",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0"
   }
 }
