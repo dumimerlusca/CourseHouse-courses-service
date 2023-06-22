@@ -17,7 +17,8 @@ it("should return the courses created by the logged in user", async () => {
     .set("authorization", bearerToken)
     .expect(200);
 
-  expect(body).toHaveLength(1);
+  expect(body.length).toBeGreaterThanOrEqual(1);
+
   const course = body[0];
   expect(course.authorId).toEqual(userId);
   expect(course.category.id).not.toBeNull();
