@@ -306,10 +306,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@dumiorg/coursehouse-common@^1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@dumiorg/coursehouse-common/-/coursehouse-common-1.0.17.tgz#3650760e0da5fcead3cc9db44b90caf8c99d6bb8"
-  integrity sha512-BYINnrqb6WYACem6LjRqhTRCTbDSQc1hueqRkt4z+vYQfLgoFmgzSHyN3rln3oGkmHRQQj3YcZ9Zush1BwD78w==
+"@dumiorg/coursehouse-common@^1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@dumiorg/coursehouse-common/-/coursehouse-common-1.0.19.tgz#b65db998ccf21cdc08a665d027ff102ef0db64f9"
+  integrity sha512-wIIbuuEK12rlDq2PIQxiFPNen6q0fPVTjJ1CAT09A3YBptfVLEkVUgZ/+k3XwBQtNbjywnQXHBF/2+qyl/XQCA==
   dependencies:
     express-validator "^7.0.1"
     jsonwebtoken "^9.0.0"
