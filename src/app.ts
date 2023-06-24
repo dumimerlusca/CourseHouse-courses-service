@@ -12,8 +12,4 @@ app.use(router);
 
 app.use(errorMiddleware);
 
-app.post("/api/test", (req, res) => {
-  res.send("Test");
-});
-
 export { app };
